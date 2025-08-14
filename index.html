@@ -1,2 +1,134 @@
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<h1>Test</h1>
+<!DOCTYPE html>
+<html id="html">
+
+<head>
+  <meta charset="utf-8">
+  <title>Epipen Locator</title>
+
+  <link rel="stylesheet" href="dist/leaflet.css">
+  <script src="dist/leaflet.js"></script>
+
+  <meta name="color-scheme" content="dark light">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description" content="Easy to use locator for Epipens in New Zealand">
+</head>
+
+<div id="errorbox"></div>
+
+<body id="mainNav">
+  <div id="navbar">
+    <table id="navTab">
+      <tr>
+        <td><img src="assets/icon.png"></td>
+        <td><h1>Epipen Locator</h1></td>
+        <td><a href="#"><img src="assets/gplay-2.png" id="gplay-icon"></a></td>
+      </tr>
+    </table>
+  </div>
+  <div id="body" onresize="doGoofyShitForSamsung()">
+    <main id="main">
+      <div id="map">
+        <div id="key" style="display: none;">
+          <b>Key</b>
+          <table>
+            <tr>
+              <th><img src='dist/images/marker-icon.png'></th>
+              <th>Private-use only</th>
+            </tr>
+            <tr>
+              <th><img src='dist/images/marker-icon.png' class="redPin"></th>
+              <th>Publicly available</th>
+            </tr>
+
+            <tr>
+              <th><img src='dist/images/marker-icon.png' class="yellowPin"></th>
+              <th>Available to purchase</th>
+            </tr>
+          </table>
+        </div>
+        <div id="emergency" style="text-align:center;">
+          <h2 style="font-weight:200;">If this is an emergency, <br>dial <b
+              style="font-weight: 1000 !important;">111</b>
+            immediately.</h2>
+        </div>
+        <div id="nearestbox">
+          <details id="nearest">
+            <summary>Nearest Location</summary>
+            <div id="content">
+              <p>Loading locations...</p>
+            </div>
+          </details>
+          <!--<details id="nearest">
+            <summary>Nearest Location</summary>
+            <div id="content">
+              <p>Loading locations...</p>
+            </div>
+          </details>-->
+        </div>
+      </div>
+      <div id="settings_tab">
+        <h1>Settings</h1>
+        <div id="settings_section">
+          <h4 id="settings_title">Legal</h4>
+          <details id="settings_dropdown">
+            <summary>About</summary>
+            <div id="settings_dropdown_content">
+              <h3>Epipen Locator</h3>
+              <p>Version 1.0</p>
+              <p>Copyright 2025 Epipen Locator</p>
+            </div>
+          </details>
+          <details id="settings_dropdown">
+            <summary>Open source licenses</summary>
+            <div id="settings_dropdown_content">
+              <p><b>Leaflet</b><br>
+              <p><a href="https://github.com/Leaflet/Leaflet/blob/main/LICENSE">BSD 2-Clause license</a></p>
+              </p>
+              <br>
+              <p><b>Ionic Capacitor</b><br>
+              <p><a href="https://github.com/ionic-team/capacitor/blob/main/LICENSE">MIT License</a></p>
+              </p>
+            </div>
+          </details>
+          <details id="settings_dropdown" class="debug">
+            <summary>Debug Information</summary>
+            <div id="settings_dropdown_content">
+
+            </div>
+          </details>
+        </div>
+      </div>
+      <!--<div id="overlay"><p id="info"></p></div>-->
+    </main>
+    <div id="material-bottom">
+      <table style="align-items: center;width:100%;">
+        <tr>
+          <td>
+            <div class="tab-selector active" id="mapicon" onclick="showTab('map', this); showKey(false);">
+              <div id="img"><img src='assets/locationdot.svg' width="16px"></div>
+              <div id="br"></div><span>Map</span>
+            </div>
+          </td>
+          <td>
+            <div class="tab-selector" onclick="showKey(null); showTab('map', this);">
+              <div id="img"><img src='assets/key.svg' width="16px"></div>
+              <div id="br"></div><span>Key</span>
+            </div>
+          </td>
+          <td>
+            <div class="tab-selector" onclick="showTab('settings_tab', this);">
+              <div id="img"><img src='assets/settings.svg' width="16px"></div>
+              <div id="br"></div><span>Settings</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+<link rel="stylesheet" href="src/style.css">
+<script src='./src/main.js'></script>
+
+</html>
