@@ -274,6 +274,10 @@ document.addEventListener("DOMContentLoaded", function () {
   map.createPane("locationMarker");
   //map.getPane("locationMarker").style.zIndex = 1;
   myLocation = L.circleMarker([0, 0], { pane: "locationMarker" }).addTo(map);
+  myLocation.bindTooltip("<b>You are here</b>", {
+  	permanent: true,   // stays visible, doesn't require hover
+  	direction: "top" // position relative to the marker
+  });
   myLocation.setStyle({ color: 'red' });
 });
 //myLocation._icon.classList.add("markerColour");

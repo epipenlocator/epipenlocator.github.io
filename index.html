@@ -30,8 +30,12 @@
     <main id="main">
       <div id="map">
         <div id="key" style="display: none;">
-          <b>Key</b>
-          <table>
+            <table id="tableNav">
+              <tr>
+                <td><b>Key</b>
+                <td><button onclick="showKey(null);">Close</button></td>
+              </tr>
+            <table>
             <tr>
               <th><img src='dist/images/marker-icon.png'></th>
               <th>Private-use only</th>
@@ -75,7 +79,7 @@
             <summary>About</summary>
             <div id="settings_dropdown_content">
               <h3>Epipen Locator</h3>
-              <p>Version 1.0</p>
+              <p>Version 1.0.1</p>
               <p>Copyright 2025 Epipen Locator</p>
             </div>
           </details>
@@ -89,6 +93,16 @@
               <p><b>Ionic Capacitor</b><br>
               <p><a href="https://github.com/ionic-team/capacitor/blob/main/LICENSE">MIT License</a></p>
               </p>
+            </div>
+          </details>
+          <details id="settings_dropdown">
+            <summary>Changelog</summary>
+            <div id="settings_dropdown_content" class="changelog">
+              <p><b>Version 1.0.1</b><br>
+              <ul><li>Added "Close" button to key</li><li>Fixed bugs when closing key.</li><li>Added Changelog to Settings page</li></ul>
+              <hr>
+              <p><b>Version 1.0</b><br>
+              <ul><li>Initial release</li></ul>
             </div>
           </details>
           <details id="settings_dropdown" class="debug">
@@ -111,7 +125,7 @@
             </div>
           </td>
           <td>
-            <div class="tab-selector" onclick="showKey(null); showTab('map', this);">
+            <div class="tab-selector" onclick="showTab('map', this); showKey(null);">
               <div id="img"><img src='assets/key.svg' width="16px"></div>
               <div id="br"></div><span>Key</span>
             </div>

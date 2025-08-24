@@ -495,3 +495,57 @@
       border-radius: 10px;
     }
   }
+  
+  .leaflet-tooltip {
+    padding:2px !important;
+    font-size: 10px !important;
+    border: 1px solid red;
+    bottom:-5px;
+  }
+  
+  .leaflet-tooltip-pane, #leaflet-tooltip-61 {
+    padding:1px;
+  }
+  
+  .leaflet-tooltip-pane::before {
+    display:none;
+  }
+  
+  #tableNav {
+    width:100% !important;
+    margin-top:0px !important;
+  }
+  
+  #tableNav tr {
+    display:flex !important;
+    padding-top:0px !important;
+    width:100%;
+    vertical-align:middle !important;
+  }
+  
+  #tableNav td {
+    width:calc(50%) !important;
+    display:flex !important;
+    align-items: center;
+    margin-top:0px !important;
+  }
+  
+  #tableNav td:has(button) {
+    text-align:right !important;
+    justify-content: end;
+    /*max-width:46px !important;*/
+  }
+  
+  #tableNav button {
+    padding:5px;
+  }
+  
+  .changelog ul {
+    padding-left:15px;
+  }
+  
+  .changelog hr {
+    margin-top:5px;
+    margin-bottom:5px;
+    border:1px solid white;
+  }
