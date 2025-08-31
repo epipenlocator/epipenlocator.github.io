@@ -116,7 +116,7 @@ async function doMap() {
     }
 
 
-    marker.bindPopup(popup);
+    marker.bindPopup(popup, { autoPan: true });
   });
 }
 
@@ -275,8 +275,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //map.getPane("locationMarker").style.zIndex = 1;
   myLocation = L.circleMarker([0, 0], { pane: "locationMarker" }).addTo(map);
   myLocation.bindTooltip("<b>You are here</b>", {
-  	permanent: true,   // stays visible, doesn't require hover
-  	direction: "top" // position relative to the marker
+    permanent: true,   // stays visible, doesn't require hover
+    direction: "top" // position relative to the marker
   });
   myLocation.setStyle({ color: 'red' });
 });
@@ -309,7 +309,7 @@ function csvParser(csv) {
   return result;
 }
 
-async function getNearestCoordinate(userLat, userLng, data) {
+async function getNearestCoordinate(userLat, userLng, data, firstTime) {
   let nearest = null;
   let minDistance = Infinity;
 
@@ -333,13 +333,16 @@ async function getNearestCoordinate(userLat, userLng, data) {
 
   //return nearest;
   const box = document.getElementById("nearest");
-  box.innerHTML = `<summary>Nearest Location</summary><div id="content"><p><b>${nearest[2]}</b></p><br><p>${nearest[3]}, <br>${nearest[4]}, <br>${nearest[5]}</p></div>`;
-  box.open = true;
+  box.innerHTML = `<summary><table id="tableNav"><tr><td><b>Nearest Location</b><td><button onclick="showDetails();">Close</button></td></tr></table></summary><div id="content"><p><b>${nearest[2]}</b></p><br><p>${nearest[3]}, <br>${nearest[4]}, <br>${nearest[5]}</p></div>`;
+  // Samsung Internet is weird so we need this stuff
+  if (firstTime == true) {
+    box.open = true;
+  }
 }
 
-async function findNearestLocation(userLat, userLng) {
+async function findNearestLocation(userLat, userLng, firstTime = true) {
   const data = await getData();
-  await getNearestCoordinate(userLat, userLng, data);
+  await getNearestCoordinate(userLat, userLng, data, firstTime);
   //const box = document.getElementById("nearest");
   //
   //if (nearest) {
@@ -364,6 +367,18 @@ function showKey(input) {
   } else if (input == false) {
     config.KEYOPEN = false;
     key.style.display = "none";
+  }
+}
+
+function showDetails() {
+  const box = document.getElementById("nearest");
+  const text = document.querySelector("#nearest summary button");
+  if (box.open == false) {
+    box.open = true;
+    text.innerText = "Close";
+  } else {
+    box.open = false;
+    text.innerText = "Open";
   }
 }
 
