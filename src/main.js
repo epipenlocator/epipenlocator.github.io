@@ -97,6 +97,9 @@ async function doMap() {
       L.DomUtil.addClass(marker._icon, "yellowPin");
     } else if (element[11] == "Public") {
       L.DomUtil.addClass(marker._icon, "redPin");
+      var pubOrPriv = "<b>Public use</b>";
+    } else if (element[11] == "Private") {
+      var pubOrPriv = "<b>Private use only</b>";
     }
     //marker._icon.classList.add("markerColour");
     var popup = `<b>${element[2]}</b><br><br>${element[3]}<br>${element[4]}<br>${element[5]}`;
@@ -105,6 +108,10 @@ async function doMap() {
     }
     if (element[8] && element[9]) {
       var popup = `${popup}, <br>between <b>${element[8]}</b> and <b>${element[9]}</b>`;
+    }
+
+    if (pubOrPriv) {
+      var popup = `${popup}<br><br>${pubOrPriv}`;
     }
 
     if (element[12]) {
