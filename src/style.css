@@ -207,7 +207,6 @@
   }
 
   /*@media (prefers-color-scheme: dark) {*/
-
     html,
     body,
     #settings_tab,
@@ -228,6 +227,7 @@
 
     #settings_section #settings_dropdown, #findbox button {
       background-color: #2f3035;
+      color:white;
     }
   /*}*/
 
@@ -434,8 +434,8 @@
 
   @media screen and (min-width:640px) {
     #navbar {
-      width: calc(100% - 72px);
-      margin-left:72px;
+      width: calc(100% - 73px);
+      margin-left:73px;
     }
   }
 
