@@ -4,9 +4,9 @@
     color-scheme: light dark;
   }
 
-  *::-webkit-scrollbar {
+  /**::-webkit-scrollbar {
     display: none;
-  }
+  }*/
 
   html,
   body {
@@ -39,10 +39,10 @@
     width: 100%;
   }
 
-  #settings_tab {
+  #settings_tab, #findbox {
     /*height: calc(100% - 64px);*/
     height: calc(100% - 20px);
-    overflow-y: scroll;
+    overflow-y: scroll !important;
     width: calc(100% - 10px);
     display: none;
     padding-left: 10px;
@@ -59,13 +59,13 @@
     padding-top: 15px;
   }
 
-  #settings_tab h1 {
+  #settings_tab h1, #findbox h1 {
     padding-top: 80px;
     font-weight: 400;
     padding-bottom: 20px;
   }
 
-  #settings_section #settings_dropdown {
+  #settings_section #settings_dropdown, #findbox button {
     width: calc(100% - 40px);
     padding: 15px;
     border-radius: 3px;
@@ -74,7 +74,15 @@
     background-color: #faf8ff88;
   }
 
-  #settings_section #settings_dropdown:first-of-type:not(:last-of-type) {
+  #findbox button {
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+    width: calc(100% - 10px);
+    border: none;
+    text-align: left;
+  }
+
+  #settings_section #settings_dropdown:first-of-type:not(:last-of-type),
+  #findbox button:first-of-type:not(:last-of-type) {
     margin-top: 3px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -82,7 +90,8 @@
     border-bottom-right-radius: 3px;
   }
 
-  #settings_section #settings_dropdown:last-of-type:not(:first-of-type) {
+  #settings_section #settings_dropdown:last-of-type:not(:first-of-type),
+  #findbox button:last-of-type:not(:first-of-type) {
     margin-top: 3px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -90,12 +99,13 @@
     border-bottom-right-radius: 15px;
   }
 
-  #settings_section #settings_dropdown:last-of-type:first-of-type {
+  #settings_section #settings_dropdown:last-of-type:first-of-type,
+  #findbox button:last-of-type:first-of-type {
     margin-top: 5px;
     border-radius: 15px;
   }
 
-  #settings_dropdown summary {
+  #settings_dropdown summary, #findbox button {
     font-weight: 200px;
     font-size: 18px;
   }
@@ -113,6 +123,16 @@
     background-color: #e3f2fd;
     height: 64px;
     padding-top: 8px;
+    overflow-x: scroll !important;
+    overflow-y: hidden;
+  }
+  
+  @media screen and (max-width:275px) and (min-height:500px) {
+    #material-bottom table {
+      overflow-x: scroll !important;
+      display: block;
+      white-space: nowrap;
+    }
   }
 
   #material-bottom div {
@@ -191,6 +211,7 @@
     html,
     body,
     #settings_tab,
+    #findbox,
     #material-bottom {
       background-color: #191c21;
       color: white;
@@ -205,7 +226,7 @@
       background-color: #191c21 !important;
     }
 
-    #settings_section #settings_dropdown {
+    #settings_section #settings_dropdown, #findbox button {
       background-color: #2f3035;
     }
   /*}*/
@@ -302,8 +323,9 @@
 
   @media screen and (max-width:639px) {
     #main {
-      height: calc(100% - 64px) !important;
-      width: 100%;
+      /*height: calc(100% - 64px) !important;*/
+      height:100% !important;
+      width: 100%; 
     }
 
     #map,
@@ -326,13 +348,15 @@
     }
 
     #map,
-    #settings_tab {
+    #settings_tab,
+    #findbox {
       height: 100%;
       position: absolute;
       top: 0;
       left: 71px;
     }
-    #settings_tab {
+    #settings_tab,
+    #findbox {
       width:600px !important;
       padding-left: calc(50% - 300px);
       padding-right: calc(50% - 300px);
@@ -342,7 +366,8 @@
       width: calc(100% - 73px) !important;
     }
 
-    #settings_tab {
+    #settings_tab,
+    #findbox {
       width: calc(100% - 64px);
     }
 
@@ -362,11 +387,11 @@
       margin-top: 15px;
     }
 
-    #settings_tab h1 {
+    #settings_tab h1, #findbox h1 {
       padding-top: 15px;
     }
 
-    #settings_section #settings_dropdown {
+    #settings_section #settings_dropdown, #findbox button {
       width: calc(100% - 60px);
     }
   }
@@ -563,3 +588,25 @@
   /*.leaflet-grab {
     z-index: 100000000000000000000000000000000000000000000000000000000 !important;
   }*/
+	
+  @media screen and (max-height: 500px) {
+    #emergency,#nearest {display:none;}
+    #navbar {display: none !important;}
+    .keybutton {display: none;}
+    #body {height:calc(100% - 36px) !important;}
+    #map {height:100% !important;top:0px !important;}
+    #main {height: 100% !important;}
+  }
+  
+  @media screen and (max-height: 500px) and (max-width: 639px) {
+    #material-bottom span {display:none;}
+    #material-bottom {padding-top:3px;height:28px;}
+    #main {height: 100% !important;}
+    .keybutton {display: none;}
+    #settings_tab h1, #findbox h1 {padding-top:7px;}
+    .leaflet-control-attribution {display: none;}
+    .leaflet-popup-content {margin:5px;width:200px !important;}
+    .leaflet-popup-content br {display: block;margin-top:2px !important;}
+  }
+  
+  

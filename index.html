@@ -13,13 +13,14 @@
 
   <meta name="description" content="Easy to use locator for Epipens in New Zealand">
 
-  <meta name="keywords" content="Epipen, Epipen Locator, Locator, Map, New Zealand, Epipens, Find Epipens, Locate Epipens">
-  <meta name="google-site-verification" content="Fysr2Ny3XjhQR7f7A3xqpYhkkWpYe3-B9DkmHHgk0o8" /> 
+  <meta name="keywords"
+    content="Epipen, Epipen Locator, Locator, Map, New Zealand, Epipens, Find Epipens, Locate Epipens">
+  <meta name="google-site-verification" content="Fysr2Ny3XjhQR7f7A3xqpYhkkWpYe3-B9DkmHHgk0o8" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFPL6C3HDK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-NFPL6C3HDK');
   </script>
@@ -99,7 +100,7 @@
             <summary>About</summary>
             <div id="settings_dropdown_content">
               <h3>Epipen Locator</h3>
-              <p>Version 1.0.2.1</p>
+              <p>Version 1.1.0</p>
               <p>Copyright 2025 Epipen Locator</p>
             </div>
           </details>
@@ -118,17 +119,24 @@
           <details id="settings_dropdown">
             <summary>Changelog</summary>
             <div id="settings_dropdown_content" class="changelog">
+              <p><b>Version 1.1.0</b><br>
+              <ul>
+                <li>Add preliminary 'Find' option to navigate to areas with Epipens</li>
+                <li>Create "Extra-small" screen size version</li>
+                <li>Make navigation bar scroll when screen is too small</li>
+              </ul>
+              <hr>
               <p><b>Version 1.0.2.1</b><br>
-                <ul>
-                  <li>Added more clarity to Private-use locations</li>
-                </ul>
-                <hr>
+              <ul>
+                <li>Added more clarity to Private-use locations</li>
+              </ul>
+              <hr>
               <p><b>Version 1.0.2</b><br>
-                <ul>
-                  <li>Added "Close" button to "Nearest Location"</li>
-                  <li>Stopped Nearest Location from opening every 5 seconds on Samsung Internet</li>
-                </ul>
-                <hr>
+              <ul>
+                <li>Added "Close" button to "Nearest Location"</li>
+                <li>Stopped Nearest Location from opening every 5 seconds on Samsung Internet</li>
+              </ul>
+              <hr>
               <p><b>Version 1.0.1</b><br>
               <ul>
                 <li>Added "Close" button to key</li>
@@ -142,40 +150,54 @@
               </ul>
             </div>
           </details>
+        </div>
+        <div id="settings_section">
+          <h4 id="settings_title">Developer information</h4>
           <details id="settings_dropdown" class="debug">
             <summary>Debug Information</summary>
             <div id="settings_dropdown_content">
 
             </div>
+
           </details>
         </div>
       </div>
-      <!--<div id="overlay"><p id="info"></p></div>-->
-    </main>
-    <div id="material-bottom">
-      <table style="align-items: center;width:100%;">
-        <tr>
-          <td>
-            <div class="tab-selector active" id="mapicon" onclick="showTab('map', this); showKey(false);">
-              <div id="img"><img src='assets/locationdot.svg' width="16px"></div>
-              <div id="br"></div><span>Map</span>
-            </div>
-          </td>
-          <td>
-            <div class="tab-selector" onclick="showTab('map', this); showKey(null);">
-              <div id="img"><img src='assets/key.svg' width="16px"></div>
-              <div id="br"></div><span>Key</span>
-            </div>
-          </td>
-          <td>
-            <div class="tab-selector" onclick="showTab('settings_tab', this);">
-              <div id="img"><img src='assets/settings.svg' width="16px"></div>
-              <div id="br"></div><span>Settings</span>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+      <div id="findbox">
+        <h1>Find</h1>
+        <button onclick="flyTo('Invercargill', '9810', 'NZ');">Invercargill, NZ</button>
+      </div>
+  </div>
+  <!--<div id="overlay"><p id="info"></p></div>-->
+  </main>
+  <div id="material-bottom">
+    <table style="align-items: center;width:100%;">
+      <tr>
+        <td>
+          <div class="tab-selector active" id="mapicon" onclick="showTab('map', this); showKey(false);">
+            <div id="img"><img src='assets/locationdot.svg' width="16px"></div>
+            <div id="br"></div><span>Map</span>
+          </div>
+        </td>
+        <td>
+          <div class="tab-selector keybutton" onclick="showTab('map', this); showKey(null);">
+            <div id="img"><img src='assets/key.svg' width="16px"></div>
+            <div id="br"></div><span>Key</span>
+          </div>
+        </td>
+        <td>
+          <div class="tab-selector" onclick="showTab('findbox', this); showKey(null);">
+            <div id="img"><img src='assets/find.svg' width="16px"></div>
+            <div id="br"></div><span>Find</span>
+          </div>
+        </td>
+        <td>
+          <div class="tab-selector" onclick="showTab('settings_tab', this);">
+            <div id="img"><img src='assets/settings.svg' width="16px"></div>
+            <div id="br"></div><span>Settings</span>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 </body>
 
