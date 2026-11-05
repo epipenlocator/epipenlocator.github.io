@@ -84,7 +84,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 async function getData() {
   if (data != []) {
-    let url = await fetch(`https://corsproxy.io/?url=https://docs.google.com/spreadsheets/d/1fUVx8t7VFMKTekBiXPzU7VZy957WD8o8mpPomt_pa1E/export?format=csv&id=1fUVx8t7VFMKTekBiXPzU7VZy957WD8o8mpPomt_pa1E&gid=0&cache=5646456`);
+    let url = await fetch(`https://locations.epipenlocator.workers.dev/`);
     data = await url.text();
     data = csvParser(data)
   }
@@ -378,7 +378,7 @@ function showDetails() {
 
 async function flyTo(city, postcode, country) {
   if (city != "Current") {
-    let data = await fetch(`https://corsproxy.io/?url=https://nominatim.openstreetmap.org/search?city=${city}&postalcode=${postcode}&country=${country}&format=jsonv2`);
+    let data = await fetch(`https://nominatim.epipenlocator.workers.dev/?city=${city}&postalcode=${postcode}&country=${country}`);
     let jsondata = await data.json();
     console.log(jsondata[0]);
     manualSet = 1;
